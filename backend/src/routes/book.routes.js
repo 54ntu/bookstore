@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router();
 
 router.route('/add').post(upload.single("image"),addbook)
-router.route('/get').get(getBook)
+router.route('/').get(getBook)
 
 
 router.route('/:id').get(getBookById);
