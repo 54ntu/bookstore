@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors')
 const { connectdb } = require('./src/db_config/db');
 const { router } = require('./src/routes/book.routes');
 const app = express();
@@ -8,6 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
+app.use(cors());
 
 
 //path for the routes

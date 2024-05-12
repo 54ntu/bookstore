@@ -6,10 +6,35 @@
 
  input{
     height: 30px;
-    width: 200px;
+    width: 100%;
+    margin-bottom: 15px;
+    color: black;
  }
 
  textarea{
     height: 30px;
-    width: 200px;
+    width: 100%;
+    margin-bottom: 15px;
  }
+
+.addbook{
+   height: 500px;
+   width: 500px;
+   background-color: whitesmoke;
+   margin: 50px auto;
+   padding: 15px;
+   
+}
+
+hr{
+   margin-bottom: 20px;
+}
+
+
+input[type=submit]{
+   background-color: green;
+   border: none;
+   border-radius: 5px;
+   font-size: 20px;
+   cursor: pointer;
+}
