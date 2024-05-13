@@ -4,8 +4,11 @@ const {bookmodel} = require('../models/book.models')
 
 
 
-const addbook = async (req, res) => {
+const addbook = async function(req, res){
   const { title, genre, author, description } = req.body;
+  // console.log("file we are getting from frontend",req.file?.filename);
+  const image = req.file?.filename;
+  
 
   try {
     const data = await bookmodel.create({
@@ -13,7 +16,7 @@ const addbook = async (req, res) => {
       genre,
       author,
       description,
-      image: req.file.path,
+      image: image,
     });
     if (data) {
       res.status(200).json({

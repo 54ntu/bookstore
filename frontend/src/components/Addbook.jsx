@@ -12,10 +12,15 @@ const Addbook = () => {
 
   const subitbook=async(e)=>{
     e.preventDefault();
-    const response=await axios.post('http://127.0.0.1:4000/book/v1/add',{
-      ...formdata,
-      image:imagedata
-    })
+   const formData = new FormData();
+   formData.append('title',formdata.title);
+   formData.append('author',formdata.author);
+   formData.append('genre',formdata.genre);
+   formData.append('description',formdata.description);
+   formData.append('image',imagedata);
+
+
+    const response=await axios.post('http://127.0.0.1:4000/book/v1/add',formData)
     console.log(response)
 
 
@@ -35,7 +40,7 @@ const Addbook = () => {
           <input type="text" className="genre" name='genre' onChange={handleChange}/>
           Description
           <textarea name='description' onChange={handleChange}></textarea>
-          <input type='file' name='image' onChange={(e)=>setImagedata(e.target.value)}/>
+          <input type='file' name="image" onChange={(e)=>setImagedata(e.target.files[0])}/>
           <input type='submit' value="submit"/>
       </form>
     </div>
