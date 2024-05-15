@@ -1,15 +1,10 @@
 const mongoose = require('mongoose')
 const {bookmodel} = require('../models/book.models')
 
-
-
-
 const addbook = async function(req, res){
   const { title, genre, author, description } = req.body;
   // console.log("file we are getting from frontend",req.file?.filename);
-  const image = req.file?.filename;
-  
-
+  const image = req.file?.filename;  
   try {
     const data = await bookmodel.create({
       title,
@@ -35,7 +30,6 @@ const addbook = async function(req, res){
     throw error;
   }
 };
-
 
 
 const getBook = async(req,res)=>{

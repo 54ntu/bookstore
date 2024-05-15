@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import toast, { useToasterStore } from 'react-hot-toast'
+import {useNavigate} from 'react-router-dom'
 
 const Addbook = () => {
   const [formdata,setFormdata] = useState({});
   const [imagedata,setImagedata] = useState();
+  const navigate = useNavigate();
 
   const handleChange =(e)=>{
-    setFormdata({...formdata, [e.target.name]:e.target.value});
+    setFormdata({...formdata, [e.target.name]: e.target.value});
   }
-
 
   const subitbook=async(e)=>{
     e.preventDefault();
@@ -18,13 +20,19 @@ const Addbook = () => {
    formData.append('genre',formdata.genre);
    formData.append('description',formdata.description);
    formData.append('image',imagedata);
+  //   console.log(formData)
+    const response=await axios.post('http://127.0.0.1:4000/book/v1/add',formData );
 
+    if(response){
+      toast.success('data added successfully')
+      console.log(response.data);
+      navigate('/');
+      
 
-    const response=await axios.post('http://127.0.0.1:4000/book/v1/add',formData)
-    console.log(response)
-
-
-
+    }else{
+      toast.error('something went wrong!!!')
+    }
+    
   }
 
   return (
