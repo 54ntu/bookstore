@@ -34,17 +34,20 @@ const addbook = async function(req, res){
 
 const getBook = async(req,res)=>{
    try {
-     const data = await bookmodel.find()
-     if(data){
-        res.status(200).json({
-          success: true,
-          data,
-          message: "here is your data!!",
-        });
-
+     const testdata = await bookmodel.find()
+    //  console.log(testdata)
+     for(let d of testdata){
+      // console.log("d values are : ",d);
+      d.image = "http://localhost:4000/temp/"+d.image;
      }
-     else{
-        console.log('error fetching data')
+     if (testdata) {
+       res.status(200).json({
+         success: true,
+         testdata,
+         message: "here is your data!!",
+       });
+     } else {
+       console.log("error fetching data");
      }
      
    } catch (error) {
