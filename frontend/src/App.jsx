@@ -5,6 +5,7 @@ import Homepage from './components/Homepage'
 import Dashboard from './components/Dashboard'
 import Addbook from './components/Addbook'
 import Bookdetail from './components/Bookdetail'
+import Listbook from './components/Listbook'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='/dashboard'>
           <Route index element={<Dashboard/>}/>
           <Route path='addbook' element={<Addbook/>}/>
+          <Route path='listbook' element={<Listbook/>}/>
         </Route>
       </Routes>
      </Router>
