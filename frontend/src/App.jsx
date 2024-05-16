@@ -13,10 +13,10 @@ function App() {
      <Router>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
+        <Route path='/bookdetail' element={<Bookdetail/>}/>
         <Route path='/dashboard'>
           <Route index element={<Dashboard/>}/>
           <Route path='addbook' element={<Addbook/>}/>
-          <Route path='bookdetail' element={<Bookdetail/>}/>
         </Route>
       </Routes>
      </Router>

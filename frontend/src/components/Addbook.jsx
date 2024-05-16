@@ -36,20 +36,20 @@ const Addbook = () => {
   }
 
   return (
-    <div className='addbook'>
+    <div style={{height:"300px",width:"300px", margin:'0px auto', background:'#ccc', borderRadius:"5px", boxShadow:'10px 10px 20px #ccc'}}>
       <h2 style={{display:'flex', justifyContent:'center'}}>Add book</h2>
       <hr></hr>
-      <form style={{display:'flex', flexDirection:'column'}} onSubmit={subitbook} encType='multipart/form-data'>
+      <form style={{display:'flex', flexDirection:'column', padding:'10px'}} onSubmit={subitbook} encType='multipart/form-data'>
           Name
-          <input type="text" className="title" name='title' onChange={handleChange}/>
+          <input type="text" style={{height:"15px",width:"100%",border:"1px solid #ccc", boxSizing:"border-box"}} name='title' onChange={handleChange}/>
           Author
-          <input type="text" className="author" name='author'  onChange={handleChange}/>
+          <input type="text" style={{height:"15px",width:"100%",border:"1px solid #ccc", boxSizing:"border-box"}} name='author'  onChange={handleChange}/>
           Genre
-          <input type="text" className="genre" name='genre' onChange={handleChange}/>
+          <input type="text" style={{height:"15px",width:"100%",border:"1px solid #ccc", boxSizing:"border-box"}} name='genre' onChange={handleChange}/>
           Description
-          <textarea name='description' onChange={handleChange}></textarea>
-          <input type='file' name="image" onChange={(e)=>setImagedata(e.target.files[0])}/>
-          <input type='submit' value="submit"/>
+          <textarea name='description' onChange={handleChange} style={{marginBottom:"10px"}}></textarea>
+          <input type='file' style={{marginBottom:'10px'}} name="image" onChange={(e)=>setImagedata(e.target.files[0])}/>
+          <input type='submit' style={{cursor:"pointer"}} value="submit"/>
       </form>
     </div>
   )

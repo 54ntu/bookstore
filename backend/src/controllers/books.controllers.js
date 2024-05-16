@@ -193,9 +193,13 @@ const searchBook=async(req,res)=>{
           {author:{$regex:q, $options: "i"}}
         ]
       });
+
+      for (let d of data){
+        d.image= "http://localhost:4000/temp/"+d.image
+      }
   
       // console.log("data : ",data);
-      if(data.length ===0){
+      if(!data){
         return res.status(404).json({
           success:false,
           message:'data not found....'
